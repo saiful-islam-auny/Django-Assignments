@@ -1,0 +1,17 @@
+body{
+    background-color:rgb(255, 232, 225);
+}
+
+.about{
+    text-align: center;
+    padding: 50px;
+    background-color: rgb(255, 179, 151);
+}
+
+.my_pic{
+    width: 100%;
+}
+
+.right{
+    text-align: center;
+}
