@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="d-flex flex-wrap px-5 pt-3 align-items-center">
+
+  <div class="col-6">
+    <h1>Welcome to CarMat</h1>
+    <p>We believe, if you like the things we do, you are more likely to choose us. It is what we call good carma. That's why we give you access to 1000s of the finest used cars. Why we will work tirelessly to find you the best finance package. And why we provide you with total peace of mind through our safety checks and warranties.</p>
+  </div>
+  <div class="col-6">
+    <img class="mx-2" style="width: 100%;" src="{% static 'head.jpg' %}" />
+  </div>
+</div>
+
+<div class="d-flex flex-wrap p-4">
+  <div class="col-12 text-center">
+    <h3>All Categories</h3>
+    <div class="row justify-content-center p-3">
+      {% for cat in brand_list %}
+      <div class="col-auto">
+        <a href="{% url 'category_wise_post' cat.slug %}" class="btn btn-dark">{{cat.name}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  
+
+  <div class="d-flex flex-wrap p-4"> 
+    <div class="p-3"> 
+      <!-- <h4>{{ data.0.Brand.name }} found: {{ data | length }}</h4>  -->
+        <div class="d-flex flex-wrap pt-5"> 
+          {% for d in data %} 
+          <div class="col-sm-3"> 
+            <div class="card m-2"> 
+              <div class="card-body"> 
+                <img style="width: 100%;" src="{{d.image.url}}" class="card-img-top" alt="">
+                <h5 class="card-title">{{d.name}}</h5> 
+                <h6 class="card-title">Rs. {{d.price}} Lakh 
+                </h6> 
+                <h6 class="card-title">{{d.brand_name}}</h6> 
+                <p class="card-text">{{d.description| truncatewords:10}}</p> 
+                <a href="{% url 'details' d.id %}" class="btn btn-primary">View Details</a> 
+
+              </div> 
+            </div> 
+          </div> 
+          {% endfor %} 
+        </div> 
+    </div> 
+ 
+</div>
+
+
+
+</div>
+{% endblock content %}
